@@ -1,0 +1,42 @@
+###Testing server status
+GET http://localhost:8000/ 
+
+
+
+###Get all the task from API
+GET http://localhost:8000/api/v1/task
+
+
+###send all the task to API
+POST http://localhost:8000/api/v1/task
+Content-Type: application/json
+
+{
+    "task": "cooking",
+    "hr": 362,
+    "type": "entry",
+    "_id": "ase5"
+
+}
+
+###update all the task at API
+PATCH   http://localhost:8000/api/v1/task
+Content-Type: application/json
+
+{
+    "type": "bad",
+    "_id": "ase3"
+}
+
+
+
+###delete all the task from API
+DELETE  http://localhost:8000/api/v1/tasks/_id
+Content-Type: application/json
+
+{
+ "_id": "ase5"
+}
+
+
+
