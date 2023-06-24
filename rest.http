@@ -14,8 +14,8 @@ Content-Type: application/json
 {
     "task": "cooking",
     "hr": 362,
-    "type": "entry",
-    "_id": "ase5"
+    "type": "entry"
+    
 
 }
 
@@ -23,20 +23,15 @@ Content-Type: application/json
 PATCH   http://localhost:8000/api/v1/task
 Content-Type: application/json
 
+
 {
     "type": "bad",
-    "_id": "ase3"
+    "_id": "64850973d641883a63f84ce1"
 }
 
 
 
 ###delete all the task from API
-DELETE  http://localhost:8000/api/v1/tasks/_id
+DELETE  http://localhost:8000/api/v1/task/64853ef136515c39a7148620
 Content-Type: application/json
-
-{
- "_id": "ase5"
-}
-
-
 
