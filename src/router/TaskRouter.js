@@ -2,6 +2,7 @@ import express from "express";
 import {
   createTask,
   deleteTaskById,
+  deleteManyTasks,
   readTasks,
   switchTask,
 } from "../model/TaskModel.js";
@@ -58,12 +59,12 @@ router.patch("/", async (req, res) => {
 
 router.delete("/", async (req, res) => {
   try {
-    const result = await deleteTaskById(req.body);
+    const result = await deleteManyTasks(req.body);
 
     result?.deletedCount > 0
       ? res.json({
           status: "success",
-          message: "  The tasks has been deleted succesfully",
+          message: " The tasks has been deleted succesfully",
         })
       : res.json({
           status: "error",

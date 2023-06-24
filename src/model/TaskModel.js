@@ -17,3 +17,11 @@ export const switchTask = (_id, type) => {
 export const deleteTaskById = (_id) => {
   return TaskSchema.findByIdAndDelete(_id);
 };
+
+export const deleteManyTasks = (ids) => {
+  return TaskSchema.deleteMany({
+    _id: {
+      $in: ids,
+    },
+  });
+};
