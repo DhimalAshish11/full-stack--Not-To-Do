@@ -56,20 +56,18 @@ router.patch("/", async (req, res) => {
   }
 });
 
-router.delete("/:_id", async (req, res) => {
+router.delete("/", async (req, res) => {
   try {
-    const { _id } = req.params;
-    const result = await deleteTaskById(_id);
-    console.log(result, _id);
+    const result = await deleteTaskById(req.body);
 
-    result?._id
+    result?.deletedCount > 0
       ? res.json({
           status: "success",
-          message: "New task has been added successfully",
+          message: "  The tasks has been deleted succesfully",
         })
       : res.json({
-          status: "success",
-          message: "unable to add the data",
+          status: "error",
+          message: "unable to delete the task",
         });
   } catch (error) {
     console.log(error);
