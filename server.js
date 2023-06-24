@@ -16,11 +16,12 @@ app.use(express.static(__dirname + "/build"));
 
 ///connect MongoDb
 
-import { mongoConnect } from "./src/config/mongoDb.js";
+/* import { mongoConnect } from "./src/config/mongoDb.js";
 
-mongoConnect();
+mongoConnect(); */
 
 import taskRouter from "./src/router/TaskRouter.js";
+import mongoose from "mongoose";
 
 app.use("/api/v1/task", taskRouter);
 
@@ -40,8 +41,10 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(PORT, (error) => {
-  error && console.log(error.message);
+mongoose.connect(process.env.MONGO_CLIENT).then(() => {
+  app.listen(PORT, (error) => {
+    error && console.log(error.message);
 
-  console.log(`server running at http://localhost:${PORT}`);
+    console.log(`server running at http://localhost:${PORT}`);
+  });
 });
