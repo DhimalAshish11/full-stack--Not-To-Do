@@ -3,7 +3,7 @@ import dotenv, { configDotenv } from "dotenv";
 dotenv.config();
 const app = express();
 import cors from "cors";
-const PORT = 8000;
+const PORT = 8000 || process.env.PORT;
 
 import path from "path";
 
