@@ -26,7 +26,7 @@ import mongoose from "mongoose";
 app.use("/api/v1/task", taskRouter);
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "index.html");
+  res.sendFile(__dirname + "/index.html");
 });
 
 //api endpoints
